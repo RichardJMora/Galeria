@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('css')
-    <link href="{{ secure_asset('/css/dropzone.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/dropzone.min.css') }}" rel="stylesheet">
 @endsection
 @section('content')
 <div class="container">
@@ -28,7 +28,7 @@
                     @endif
                     <h4>Mi foto de perfil</h4>
                     <a href="#" class="thumbnail">
-                        <img src="{{ secure_asset('/storage/'. Auth::user()->avatar) }}" alt="...">
+                        <img src="{{ asset('/storage/'. Auth::user()->avatar) }}" alt="...">
                     </a>
                                         
                     <form action="{{ url('profile') }}" method="POST" role="form" enctype="multipart/form-data">
@@ -51,7 +51,7 @@
                         @foreach(Auth::user()->files as $file)
                         <div class="col-xs-6 col-md-3">
                             <a href="#" class="thumbnail">
-                            <img src="{{ secure_asset('/storage/'. $file->filename ) }}" alt="...">
+                            <img src="{{ asset('/storage/'. $file->filename ) }}" alt="...">
                             </a>
                         </div>
                         @endforeach
@@ -87,7 +87,7 @@
 </div>
 @endsection
 @section('scripts')
-    <script src="{{ secure_asset('/js/dropzone.min.js') }}"></script>
+    <script src="{{ asset('/js/dropzone.min.js') }}"></script>
     <script>
         Dropzone.options.myDropzone = {
             autoProcessQueue: false,
